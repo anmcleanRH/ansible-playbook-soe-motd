@@ -1,2 +1,17 @@
 ---
 # tasks file for ansible-role-motd
+- name: ICT Banner Message
+  ansible.builtin.copy:
+    src: issue
+    dest: /etc/issue
+    mode: 0644
+    owner: root
+    group: root
+
+- name: MOTD script
+  ansible.builtin.copy:
+    src: motd.sh
+    dest: /etc/profile.d/
+    mode: 0755
+    owner: root
+    group: root 
